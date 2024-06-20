@@ -4,6 +4,12 @@ import { CitizenModule } from "./citizen/citizen.module";
 import { BiometricDataModule } from "./biometricData/biometricData.module";
 import { CredentialModule } from "./credential/credential.module";
 import { UserModule } from "./user/user.module";
+import { BankingModule } from "./Banking/banking.module";
+import { ConsumerServicesModule } from "./ConsumerServices/consumerservices.module";
+import { HealthcareModule } from "./Healthcare/healthcare.module";
+import { SocialWelfareModule } from "./SocialWelfare/socialwelfare.module";
+import { TestSetupModule } from "./TestSetup/testsetup.module";
+import { TransportationModule } from "./Transportation/transportation.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -26,6 +32,12 @@ import { AuthModule } from "./auth/auth.module";
     BiometricDataModule,
     CredentialModule,
     UserModule,
+    BankingModule,
+    ConsumerServicesModule,
+    HealthcareModule,
+    SocialWelfareModule,
+    TestSetupModule,
+    TransportationModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
