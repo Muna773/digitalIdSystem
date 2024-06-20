@@ -1,0 +1,81 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AuthenticationLog {
+  authenticationMethod EnumAuthenticationLogAuthenticationMethod?
+  citizenId            Int?
+  createdAt            DateTime                                   @default(now())
+  id                   String                                     @id @default(cuid())
+  result               EnumAuthenticationLogResult?
+  timestamp            DateTime?
+  updatedAt            DateTime                                   @updatedAt
+}
+
+model Citizen {
+  address     String?
+  createdAt   DateTime  @default(now())
+  dateOfBirth DateTime?
+  email       String?
+  firstName   String?
+  id          String    @id @default(cuid())
+  lastName    String?
+  updatedAt   DateTime  @updatedAt
+}
+
+model BiometricData {
+  biometricType     EnumBiometricDataBiometricType?
+  createdAt         DateTime                        @default(now())
+  facialRecognition Json?
+  fingerprint       Json?
+  id                String                          @id @default(cuid())
+  irisScan          Json?
+  updatedAt         DateTime                        @updatedAt
+}
+
+model Credential {
+  createdAt      DateTime                      @default(now())
+  credentialType EnumCredentialCredentialType?
+  expiresAt      DateTime?
+  id             String                        @id @default(cuid())
+  issuedAt       DateTime?
+  status         EnumCredentialStatus?
+  updatedAt      DateTime                      @updatedAt
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+enum EnumAuthenticationLogAuthenticationMethod {
+  Option1
+}
+
+enum EnumAuthenticationLogResult {
+  Option1
+}
+
+enum EnumBiometricDataBiometricType {
+  Option1
+}
+
+enum EnumCredentialCredentialType {
+  Option1
+}
+
+enum EnumCredentialStatus {
+  Option1
+}
